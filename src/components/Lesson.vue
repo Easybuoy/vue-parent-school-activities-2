@@ -15,9 +15,6 @@ export default {
   props: {
     lesson: Object,
   },
-  mounted() {
-    console.log(this.lessons, "this.lessons");
-  },
 };
 </script>
 

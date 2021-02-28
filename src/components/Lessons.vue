@@ -27,13 +27,15 @@ export default {
 .lessons-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  width: 75%;
+  justify-content: space-around;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .lesson {
   background: #F1DEDE;
-  width: 25%;
+  width: 22%;
   margin: 16px;
   border-radius: 5px;
   text-align: center;
