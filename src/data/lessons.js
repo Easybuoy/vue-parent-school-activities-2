@@ -6,6 +6,7 @@ export default [
     price: '$100',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: false,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export default [
     price: '$200',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: false,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export default [
     price: '$900',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export default [
     price: '$100',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export default [
     price: '$200',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ export default [
     price: '$900',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 7,
@@ -54,6 +60,7 @@ export default [
     price: '$100',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ export default [
     price: '$200',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
   {
     id: 9,
@@ -70,5 +78,6 @@ export default [
     price: '$900',
     spaces: 5,
     image: 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_470493341_20001333200092800_398689.jpg',
+    availability: true,
   },
 ];

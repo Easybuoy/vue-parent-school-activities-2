@@ -3,26 +3,15 @@
     <p>This is a sidebar</p>
 
     <ul>
-      <li>
+      <li v-for="fieldFilter in fieldFilters" :key="fieldFilter.id">
         <input
           type="radio"
-          id="subject"
-          name="filter"
-          value="subject"
-          @change="setRadioValue('subject')"
+          :id="fieldFilter.id"
+          :name="fieldFilter.name"
+          :value="fieldFilter.value"
+          @change="setRadioValue(fieldFilter.value)"
         />
-        <label for="subject">Subject</label>
-      </li>
-
-      <li>
-        <input
-          type="radio"
-          id="location"
-          name="filter"
-          value="location"
-          @change="setRadioValue('location')"
-        />
-        <label for="location">Location</label>
+        <label :for="fieldFilter.value">{{fieldFilter.text}}</label>
       </li>
     </ul>
 
@@ -31,11 +20,11 @@
         <input
           type="radio"
           :id="orderFilter.id"
-          name="order"
+          :name="orderFilter.name"
           :value="orderFilter.value"
           @change="setOrderValue(orderFilter.value)"
         />
-        <label for="subject">{{ orderFilter.text }}</label>
+        <label :for="orderFilter.value">{{ orderFilter.text }}</label>
       </li>
     </ul>
   </div>
@@ -43,6 +32,7 @@
 
 <script>
 import orderFilter from "../data/orderFilter";
+import fieldFilter from '../data/fieldFilter';
 
 export default {
   name: "Sidebar",
@@ -50,6 +40,7 @@ export default {
     selectedFilter: "",
     selectedOrder: "",
     orderFilters: orderFilter,
+    fieldFilters: fieldFilter,
   }),
   methods: {
     setRadioValue: function (value) {

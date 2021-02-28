@@ -5,7 +5,10 @@
     <p>Location: {{ lesson.location }}</p>
     <p>Price: {{ lesson.price }}</p>
     <p>Location: {{ lesson.spaces }}</p>
-    <button :disabled="lesson.spaces === 0">Add to cart</button>
+
+    <button v-show="lesson.availability" :disabled="lesson.spaces === 0">
+      Add to cart
+    </button>
   </div>
 </template>
 

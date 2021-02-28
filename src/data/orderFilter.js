@@ -1,14 +1,16 @@
 import { FILTER_ORDER } from '../constants';
+const FILTER_NAME = 'order';
+
 export default [
   {
     id: FILTER_ORDER.ASC,
-    name: 'order',
+    name: FILTER_NAME,
     value: FILTER_ORDER.ASC,
     text: 'Ascending'
   },
   {
     id: FILTER_ORDER.DESC,
-    name: 'order',
+    name: FILTER_NAME,
     value: FILTER_ORDER.DESC,
     text: 'Descending'
   },
