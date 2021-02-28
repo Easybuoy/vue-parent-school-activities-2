@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <img :src="lesson.image" alt="" />
-    <p>Subject: {{ lesson.price }}</p>
+    <p>Subject: {{ lesson.subject }}</p>
     <p>Location: {{ lesson.location }}</p>
     <p>Price: {{ lesson.price }}</p>
     <p>Location: {{ lesson.spaces }}</p>

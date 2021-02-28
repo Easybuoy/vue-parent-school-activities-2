@@ -9,9 +9,9 @@
           :id="fieldFilter.id"
           :name="fieldFilter.name"
           :value="fieldFilter.value"
-          @change="setRadioValue(fieldFilter.value)"
+          @change="setFieldValue(fieldFilter.value)"
         />
-        <label :for="fieldFilter.value">{{fieldFilter.text}}</label>
+        <label :for="fieldFilter.value">{{ fieldFilter.text }}</label>
       </li>
     </ul>
 
@@ -32,22 +32,28 @@
 
 <script>
 import orderFilter from "../data/orderFilter";
-import fieldFilter from '../data/fieldFilter';
+import fieldFilter from "../data/fieldFilter";
+import { FILTER_ORDER } from '../constants';
 
 export default {
   name: "Sidebar",
+  props: {
+    filter: Function,
+  },
   data: () => ({
-    selectedFilter: "",
-    selectedOrder: "",
+    selectedFilter: 'subject',
+    selectedOrder: FILTER_ORDER.ASC,
     orderFilters: orderFilter,
     fieldFilters: fieldFilter,
   }),
   methods: {
-    setRadioValue: function (value) {
+    setFieldValue: function (value) {
       this.selectedFilter = value;
+      this.filter(this.selectedFilter, this.selectedOrder);
     },
     setOrderValue: function (value) {
       this.selectedOrder = value;
+      this.filter(this.selectedFilter, this.selectedOrder);
     },
   },
   mounted() {

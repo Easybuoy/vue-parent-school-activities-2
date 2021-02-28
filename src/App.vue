@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Sidebar />
+    <Sidebar :filter="filter" />
     <Lessons :lessons="lessons" />
   </div>
 </template>
@@ -9,6 +9,7 @@
 import Lessons from "./components/Lessons";
 import Sidebar from "./components/Sidebar";
 import lessonsData from "./data/lessons";
+import { sortPrices, sortFields, sortAvailability } from "./utils";
 
 export default {
   name: "App",
@@ -19,6 +20,25 @@ export default {
   data: () => ({
     lessons: lessonsData,
   }),
+  methods: {
+    filter(field, order) {
+      if (field === "price") {
+        const sortedLessons = sortPrices(lessonsData, field, order);
+        this.lessons = sortedLessons;
+        return;
+      } else if (field === "availability") {
+        const sortedLessons = sortAvailability(lessonsData, field, order);
+        this.lessons = sortedLessons;
+        return;
+      }
+
+      console.log(field, order);
+      const sortedLessons = sortFields(lessonsData, field, order);
+      console.log(sortedLessons, "sss");
+      this.lessons = sortedLessons;
+      return;
+    },
+  },
 };
 </script>
 

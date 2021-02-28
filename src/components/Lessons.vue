@@ -17,9 +17,6 @@ export default {
   components: {
     Lesson,
   },
-  mounted() {
-    console.log(this.lessons, "this.lessons");
-  },
 };
 </script>
 
