@@ -32,9 +32,7 @@ export default {
         return;
       }
 
-      console.log(field, order);
       const sortedLessons = sortFields(lessonsData, field, order);
-      console.log(sortedLessons, "sss");
       this.lessons = sortedLessons;
       return;
     },
