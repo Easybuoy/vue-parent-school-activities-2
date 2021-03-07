@@ -30,12 +30,4 @@ export default {
   overflow-y: scroll;
   height: 100vh;
 }
-
-.lesson {
-  background: #F1DEDE;
-  width: 22%;
-  margin: 16px;
-  border-radius: 5px;
-  text-align: center;
-}
 </style>

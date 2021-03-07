@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <img :src="lesson.image" alt="" />
     <p>Subject: {{ lesson.subject }}</p>
     <p>Location: {{ lesson.location }}</p>
@@ -23,11 +23,7 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
+
 
 button:disabled,
 button[disabled] {

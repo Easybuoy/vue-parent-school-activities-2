@@ -1,33 +1,69 @@
 <template>
   <div class="shopping-cart-container">
-    <div class="checkout">
-      <button @click="toggleView">Back to Lessons</button>
+    <div class="container">
+      <div v-for="lesson in cartItems" :key="lesson.id" class="lesson">
+        <img :src="lesson.image" alt="" />
+        <p>Subject: {{ lesson.subject }}</p>
+        <p>Location: {{ lesson.location }}</p>
+        <p>Price: {{ lesson.price }}</p>
+        <p>Spaces: {{ 5 - lesson.spaces }}</p>
+      </div>
     </div>
-    <div class="sidebar">
-      <p>Sort by Fields</p>
 
-    
+    <div class="checkout-container">
+      <p>Name <input type="text" v-model="name" /></p>
+      <p>Phone <input type="number" v-model="phone" /></p>
+
+      <div class="cta">
+        <button @click="checkout" v-show="name && phone">Checkout</button>
+        <button @click="toggleView">Back to Lessons</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
-
 export default {
   name: "ShoppingCart",
   props: {
     toggleView: Function,
+    cartItems: Array,
   },
   data: () => ({
-   
+    name: "",
+    phone: "",
   }),
   methods: {
-    
+    checkout() {
+      alert("Order has been submitted");
+    },
   },
 };
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
 
+.checkout-container {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cta {
+  display: flex;
+
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cta button {
+  width: 45%;
+}
 </style>

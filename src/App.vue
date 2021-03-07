@@ -58,7 +58,6 @@ export default {
       this.showShoppingCart = !this.showShoppingCart;
     },
     addToCart(id) {
-      this.cartItems.push(id);
       const existingLesson = this.lessons.find((lesson) => lesson.id === id);
       if (existingLesson) {
         this.lessons.map((lesson) => {
@@ -113,5 +112,28 @@ button:hover:enabled {
   color: #cc2936;
   background: white;
   border: 1px solid #cc2936;
+}
+
+img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.lessons-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  justify-content: space-around;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.lesson {
+  background: #F1DEDE;
+  width: 22%;
+  margin: 16px;
+  border-radius: 5px;
+  text-align: center;
 }
 </style>
