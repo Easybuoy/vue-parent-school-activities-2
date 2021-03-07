@@ -1,7 +1,7 @@
 <template>
   <div class="lessons-container">
     <div v-for="lesson in lessons" :key="lesson.id" class="lesson">
-      <Lesson :lesson="lesson" />
+      <Lesson :lesson="lesson" :addToCart="addToCart" />
     </div>
   </div>
 </template>
@@ -13,6 +13,7 @@ export default {
   name: "Lessons",
   props: {
     lessons: Array,
+    addToCart: Function,
   },
   components: {
     Lesson,

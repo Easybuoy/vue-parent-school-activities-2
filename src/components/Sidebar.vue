@@ -1,6 +1,8 @@
 <template>
   <div class="sidebar-container">
-    <div class="checkout">0</div>
+    <div class="checkout" v-show="cartCount > 0">
+      <button @click="toggleView">Cart ({{cartCount}})</button>
+    </div>
     <div class="sidebar">
       <p>Sort by Fields</p>
 
@@ -43,6 +45,8 @@ export default {
   name: "Sidebar",
   props: {
     filter: Function,
+    toggleView: Function,
+    cartCount: Number,
   },
   data: () => ({
     selectedFilter: "subject",
@@ -59,9 +63,6 @@ export default {
       this.selectedOrder = value;
       this.filter(this.selectedFilter, this.selectedOrder);
     },
-  },
-  mounted() {
-    //   this.selectedFilter
   },
 };
 </script>
