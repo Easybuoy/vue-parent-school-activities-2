@@ -14,6 +14,7 @@
         :toggleView="toggleView"
         :cartItems="cartItems"
         :removeFromCart="removeFromCart"
+        :checkout="checkout"
       />
     </div>
   </div>
@@ -102,6 +103,12 @@ export default {
           }
         }
       }
+    },
+    checkout() {
+      alert("Order has been submitted");
+      this.cartCount = 0;
+      this.cartItems = [];
+      this.toggleView();
     },
   },
 };

@@ -31,16 +31,12 @@ export default {
     toggleView: Function,
     cartItems: Array,
     removeFromCart: Function,
+    checkout: Function,
   },
   data: () => ({
     name: "",
     phone: "",
   }),
-  methods: {
-    checkout() {
-      alert("Order has been submitted");
-    },
-  },
 };
 </script>
 
