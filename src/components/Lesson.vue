@@ -25,13 +25,7 @@ export default {
 <style scoped>
 
 
-button:disabled,
-button[disabled] {
-  background-color: #cc2936;
-  filter: brightness(70%);
-  color: white;
-  cursor: default;
-}
+
 
 p {
   margin: 0;

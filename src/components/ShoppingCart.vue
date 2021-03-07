@@ -7,6 +7,8 @@
         <p>Location: {{ lesson.location }}</p>
         <p>Price: {{ lesson.price }}</p>
         <p>Spaces: {{ 5 - lesson.spaces }}</p>
+
+        <button @click="removeFromCart(lesson.id)">Remove</button>
       </div>
     </div>
 
@@ -28,6 +30,7 @@ export default {
   props: {
     toggleView: Function,
     cartItems: Array,
+    removeFromCart: Function,
   },
   data: () => ({
     name: "",
@@ -76,5 +79,6 @@ input {
 
 .checkout-container p {
   width: 45%;
+  margin-top: 24px;
 }
 </style>

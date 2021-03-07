@@ -10,10 +10,11 @@
     </div>
 
     <div v-else class="cart">
-      <ShoppingCart 
-      :toggleView="toggleView"
-      :cartItems="cartItems"
-       />
+      <ShoppingCart
+        :toggleView="toggleView"
+        :cartItems="cartItems"
+        :removeFromCart="removeFromCart"
+      />
     </div>
   </div>
 </template>
@@ -76,6 +77,32 @@ export default {
         }
       }
     },
+    removeFromCart(id) {
+      const existingLesson = this.lessons.find((lesson) => lesson.id === id);
+      if (existingLesson) {
+        this.lessons.map((lesson) => {
+          if (lesson.id === id) {
+            lesson.spaces++;
+          }
+          return lesson;
+        });
+
+        const existingLessonInCart = this.cartItems.find(
+          (lesson) => lesson.id === id
+        );
+        if (existingLessonInCart) {
+          if (existingLessonInCart.spaces === 5) {
+            this.cartCount = this.cartCount - 1;
+            this.cartItems = this.cartItems.filter((item) => item.id !== id);
+
+            if (this.cartItems.length === 0) {
+              alert("Cart is now empty");
+              this.toggleView();
+            }
+          }
+        }
+      }
+    },
   },
 };
 </script>
@@ -84,10 +111,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
 
 #app {
-  /* max-width: 1060px;
-  margin: auto;
-  padding-left: 16px;
-  padding-right: 16px; */
   display: flex;
   flex-wrap: wrap;
   font-family: "Baloo 2", cursive;
@@ -95,6 +118,10 @@ export default {
 
 .main {
   display: flex;
+}
+
+.cart {
+  width: 100%;
 }
 
 button {
@@ -114,6 +141,14 @@ button:hover:enabled {
   border: 1px solid #cc2936;
 }
 
+button:disabled,
+button[disabled] {
+  background-color: #cc2936;
+  filter: brightness(70%);
+  color: white;
+  cursor: default;
+}
+
 img {
   width: 100%;
   height: 150px;
@@ -130,7 +165,7 @@ img {
 }
 
 .lesson {
-  background: #F1DEDE;
+  background: #f1dede;
   width: 22%;
   margin: 16px;
   border-radius: 5px;
