@@ -54,16 +54,27 @@ export default {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .cta {
   display: flex;
-
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
 }
 
 .cta button {
+  width: 45%;
+  margin: 0 8px;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid black;
+  outline-color: white;
+}
+
+.checkout-container p {
   width: 45%;
 }
 </style>
