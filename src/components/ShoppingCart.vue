@@ -17,7 +17,7 @@
       <p>Phone <input type="number" v-model="phone" /></p>
 
       <div class="cta">
-        <button @click="checkout" v-show="name && phone">Checkout</button>
+        <button @click="checkout(name, phone)" v-show="name && phone">Checkout</button>
         <button @click="toggleView">Back to Lessons</button>
       </div>
     </div>

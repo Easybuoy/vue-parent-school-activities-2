@@ -35,11 +35,20 @@ export default {
     ShoppingCart,
   },
   data: () => ({
-    lessons: lessonsData,
+    lessons: [],
     showShoppingCart: false,
     cartCount: 0,
     cartItems: [],
   }),
+  created: async function () {
+    try {
+      const res = await fetch("http://localhost:2000/collection/lessons");
+      const response = await res.json();
+      this.lessons = response.results;
+    } catch (error) {
+      alert("Error getting lessons");
+    }
+  },
   methods: {
     filter(field, order) {
       if (field === "price") {
@@ -104,8 +113,38 @@ export default {
         }
       }
     },
-    checkout() {
-      alert("Order has been submitted");
+    async checkout(name, phone) {
+
+      try {
+        const res = await fetch("http://localhost:2000/order/createOrder", {
+          method: "POST",
+          body: JSON.stringify({
+            name,
+            phone,
+            lessonId: this.cartItems[0]._id,
+            space: 5 - this.cartItems[0].spaces,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        await res.json();
+
+        const res2 = await fetch(`http://localhost:2000/collection/lessons/${this.cartItems[0]._id}`, {
+          method: "PUT",
+          body: JSON.stringify({
+            space: 5 - this.cartItems[0].spaces,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        await res2.json();
+        alert("Order has been submitted");
+      } catch (error) {
+        console.log(error);
+      }
+
       this.cartCount = 0;
       this.cartItems = [];
       this.toggleView();
