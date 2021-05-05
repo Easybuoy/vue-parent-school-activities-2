@@ -1,0 +1,5 @@
+Backend Repo: https://github.com/Easybuoy/parent-school-activities-be
+Frontend Repo: https://github.com/Easybuoy/vue-parent-school-activities-2
+Heroku Route for Lessons: https://parent-school-activities-be.herokuapp.com/collection/lessons
+Github Pages: https://easybuoy.github.io/vue-parent-school-activities-2
+Postman Collection: https://www.getpostman.com/collections/54c144f6587480d1dea1

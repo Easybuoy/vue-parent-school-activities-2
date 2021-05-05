@@ -42,7 +42,7 @@ export default {
   }),
   created: async function () {
     try {
-      const res = await fetch("http://localhost:2000/collection/lessons");
+      const res = await fetch("https://parent-school-activities-be.herokuapp.com/collection/lessons");
       const response = await res.json();
       this.lessons = response.results;
     } catch (error) {
@@ -116,7 +116,7 @@ export default {
     async checkout(name, phone) {
 
       try {
-        const res = await fetch("http://localhost:2000/order/createOrder", {
+        const res = await fetch("https://parent-school-activities-be.herokuapp.com/order/createOrder", {
           method: "POST",
           body: JSON.stringify({
             name,
@@ -130,7 +130,7 @@ export default {
         });
         await res.json();
 
-        const res2 = await fetch(`http://localhost:2000/collection/lessons/${this.cartItems[0]._id}`, {
+        const res2 = await fetch(`https://parent-school-activities-be.herokuapp.com/collection/lessons/${this.cartItems[0]._id}`, {
           method: "PUT",
           body: JSON.stringify({
             space: 5 - this.cartItems[0].spaces,
